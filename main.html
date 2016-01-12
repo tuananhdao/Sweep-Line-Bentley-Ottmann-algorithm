@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>HTML5 Plane Sweep Algorithm for Line Segment Intersections</title>
+		<link href="main.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="leftCol">
+			<h3 class="module-header">Points</h3>
+			<div class="module">
+				bbbbb
+			</div>
+			<h3 class="module-header">Segments</h3>
+			<div class="module">
+				bbbbb
+			</div>
+			<h3 class="module-header">Plane-Sweep Algorithm</h3>
+			<div class="module">
+				<center><button id="GO">Find Intersections</button></center>
+			</div>
+			<br />
+			<h3 class="module-header">Q: Event Queue</h3>
+			<div class="module">
+				bbbbb
+			</div>
+			<h3 class="module-header">T: Status Tree</h3>
+			<div class="module">
+				bbbbb
+			</div>
+			<h3 class="module-header">Founded intersections</h3>
+			<div class="module">
+				bbbbb
+			</div>
+		</div>
+		<div id="rightCol">
+			<h3 class="module-header">Canvas</h3>
+			<div class="module" id="canvasParent">
+				<canvas id="canvas" width="1000px" height="500px"></canvas>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div id="copyright">Developed by Dao Tuan Anh.</div>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script src="algorithm.js"></script>
+		<script src="view.js"></script>
+		<script>
+			var segmentArray = [];
+		
+			var s1 = new Segment(new EventPoint(3,1), new EventPoint(2,4)); segmentArray.push(s1);
+			var s2 = new Segment(new EventPoint(7,2), new EventPoint(9,4)); segmentArray.push(s2);
+			var s3 = new Segment(new EventPoint(5,3), new EventPoint(3,6)); segmentArray.push(s3);
+			var s4 = new Segment(new EventPoint(5,3), new EventPoint(4,7)); segmentArray.push(s4);
+			var s5 = new Segment(new EventPoint(5,3), new EventPoint(7,5)); segmentArray.push(s5);
+			var s6 = new Segment(new EventPoint(0,0), new EventPoint(2,2)); segmentArray.push(s6);
+			var s7 = new Segment(new EventPoint(0,2), new EventPoint(2,0)); segmentArray.push(s7);
+			var s8 = new Segment(new EventPoint(5,5), new EventPoint(9,2)); segmentArray.push(s8);
+			var s9 = new Segment(new EventPoint(1,1), new EventPoint(3,6)); segmentArray.push(s9);
+			var s10 = new Segment(new EventPoint(3,1), new EventPoint(6,0)); segmentArray.push(s10);
+			var s11 = new Segment(new EventPoint(4,0), new EventPoint(6,2)); segmentArray.push(s11);
+			var s12 = new Segment(new EventPoint(6,0), new EventPoint(5,5)); segmentArray.push(s12);
+			var s13 = new Segment(new EventPoint(2,2), new EventPoint(3,5)); segmentArray.push(s13);
+			var s14 = new Segment(new EventPoint(0,0), new EventPoint(14,7)); segmentArray.push(s14);
+			var s15 = new Segment(new EventPoint(1,4), new EventPoint(2,5)); segmentArray.push(s15);
+			var s16 = new Segment(new EventPoint(10,0), new EventPoint(12,1)); segmentArray.push(s16);
+			var s17 = new Segment(new EventPoint(12,0), new EventPoint(6,1)); segmentArray.push(s17);
+			var s18 = new Segment(new EventPoint(9,0), new EventPoint(7,1)); segmentArray.push(s18);
+			var s19 = new Segment(new EventPoint(14,5), new EventPoint(13,7)); segmentArray.push(s19);
+			var s20 = new Segment(new EventPoint(14,5), new EventPoint(4,7)); segmentArray.push(s20);
+			var s21 = new Segment(new EventPoint(0,6.9), new EventPoint(2,7)); segmentArray.push(s21);
+			var s22 = new Segment(new EventPoint(10,7), new EventPoint(11,3)); segmentArray.push(s22);
+			var s23 = new Segment(new EventPoint(10,3), new EventPoint(11,4)); segmentArray.push(s23);
+			var s24 = new Segment(new EventPoint(7,2), new EventPoint(9,1)); segmentArray.push(s24);
+			var s25 = new Segment(new EventPoint(2,5), new EventPoint(9,4)); segmentArray.push(s25);
+			var s26 = new Segment(new EventPoint(2,6.9), new EventPoint(4,7)); segmentArray.push(s26);
+			var s27 = new Segment(new EventPoint(0,7), new EventPoint(4,6.9)); segmentArray.push(s27);
+			var s28 = new Segment(new EventPoint(5,5), new EventPoint(6,7)); segmentArray.push(s28);
+			var s29 = new Segment(new EventPoint(7,5), new EventPoint(6,7)); segmentArray.push(s29);
+			var s30 = new Segment(new EventPoint(8,5), new EventPoint(9,6)); segmentArray.push(s30);
+			var s31 = new Segment(new EventPoint(8,5), new EventPoint(9,7)); segmentArray.push(s31);
+			
+			//segmentArray = []
+			//var h1 = new Segment(new EventPoint(0,0), new EventPoint(2,2)); segmentArray.push(h1);
+			//var h2 = new Segment(new EventPoint(0,2), new EventPoint(2,0)); segmentArray.push(h2);
+			
+			var kk = new FindIntersections(segmentArray);
+			
+		
+			DrawMesh();
+			DrawSegments(segmentArray);
+			//var kk = new FindIntersections([s6, s7]);
+			kk.Solve();
+			console.log("==========================");
+			console.log("Solution:");
+			console.log(kk.intersections);
+			DrawPoints(kk.intersections, "#FF0000");
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+html {
+margin: 0;
+}
+body {
+	margin: 50px;
+	min-width: 500px;
+	box-sizing: border-box;
+	font-size: 12px;
+	font-family: tahoma;
+}
+.clear {
+	clear: both;
+}
+#leftCol {
+	width: 200px;
+	height: 100%;
+	float: left;
+	margin-right: 10px;
+}
+#rightCol {
+	width: 1000px;
+	height: 100%;
+	float: left;
+}
+#copyright {
+	margin-top: 20px;
+	text-align: center;
+	font-size: smaller;
+	color: #666;
+}
+.module {
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-top: 0 none;
+	padding: 2px;
+	margin-bottom: 5px;
+}
+h3.module-header {
+	background: #ccc;
+	display: block;
+	margin: 0;
+	padding: 2px;
+}
+.module#canvasParent {
+	height: 500px;
+	border-top: 1px solid;
+	border-color: #888;
+	position: relative;
+}
+#canvas {
+	cursor: pointer;
+}
+#positionDiv {
+	position: absolute;
+	color: #ccc;
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+
+	/* Rules below not implemented in browsers yet */
+	-o-user-select: none;
+	user-select: none;
+}
